@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  db_posgtgres:
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: system
+
+  consul:
+    image: consul:1.7.1
+    hostname: localhost
+    ports:
+      - 8500:8500
