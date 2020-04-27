@@ -16,7 +16,12 @@ pipeline {
     stages {
         stage("Say hello world") {
             steps {
-                helloWorld("say hello")
+                helloWorld()
+            }
+        }
+        stage("print branch name") {
+            steps {
+                print(env.GIT_BRANCH)
             }
         }
         stage("Tests") {
