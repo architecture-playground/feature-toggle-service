@@ -37,7 +37,12 @@ echo "** Tests finished"
 ''')
             }
         }
-        stage("Push Docker Image") {
+        stage('check branch') {
+            when {
+                expression {
+                    return env.BRANCH_NAME == 'master';
+                }
+            }
             steps {
                 echo "** Docker login started"
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_architectureplayground', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
