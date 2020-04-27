@@ -25,6 +25,11 @@ echo "** Tests finished"
 ''')
             }
         }
+        stage("Say hello world") {
+            steps {
+                helloWorld("say hello")
+            }
+        }
         stage("Push Docker Image") {
             steps {
                 echo "** Docker login started"
