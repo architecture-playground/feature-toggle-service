@@ -36,6 +36,7 @@ echo "** Tests finished"
         stage('check branch') {
             when {
                 expression {
+                    print(env.BRANCH_NAME)
                     return env.BRANCH_NAME == 'master';
                 }
             }
