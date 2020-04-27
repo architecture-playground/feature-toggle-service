@@ -14,13 +14,9 @@ pipeline {
         timestamps()
     }
     stages {
-        stage("Say hello world") {
-            steps {
-                helloWorld()
-            }
-        }
         stage("print branch name") {
             steps {
+                sh ('printenv')
                 print(env.GIT_BRANCH)
             }
         }
