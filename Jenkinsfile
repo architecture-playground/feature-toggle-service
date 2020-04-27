@@ -14,6 +14,11 @@ pipeline {
         timestamps()
     }
     stages {
+        stage("Say hello world") {
+            steps {
+                helloWorld("say hello")
+            }
+        }
         stage("Tests") {
             steps {
                 sh('''#!/bin/bash -ex
@@ -25,11 +30,6 @@ echo "** Tests started" && \\
 docker run -i --rm -v /var/run/docker.sock:/var/run/docker.sock architectureplayground/featuretoggle:tests && \\
 echo "** Tests finished"
 ''')
-            }
-        }
-        stage("Say hello world") {
-            steps {
-                helloWorld("say hello")
             }
         }
         stage("Push Docker Image") {
