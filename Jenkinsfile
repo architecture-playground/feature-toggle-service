@@ -16,7 +16,8 @@ pipeline {
     stages {
         stage("print branch name") {
             steps {
-                splitJobName
+                jobName = "${env.JOB_NAME}"
+                Jenkins.instance.getItem(jobName.split('/')[0]).description = "hi"
             }
         }
         stage("Tests") {
@@ -36,7 +37,6 @@ echo "** Tests finished"
             steps {
                 pushImageToRepository()
             }
-
         }
     }
 }
