@@ -16,10 +16,6 @@ pipeline {
     stages {
         stage("print branch name") {
             steps {
-
-                def JOB_BASE_NAME= env.JOB_NAME.split('/').takeRight()
-
-                println(JOB_BASE_NAME)
                 println(env.JOB_NAME)
             }
         }
