@@ -16,8 +16,7 @@ pipeline {
     stages {
         stage("print branch name") {
             steps {
-                def jobName = "${env.JOB_NAME}"
-                Jenkins.instance.getItem(jobName.split('/')[0]).description = "hi"
+                println(env.JOB_NAME)
             }
         }
         stage("Tests") {
