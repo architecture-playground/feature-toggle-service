@@ -16,7 +16,8 @@ pipeline {
     stages {
         stage("print branch name") {
             steps {
-                println(env.JOB_NAME)
+                repoName = env.JOB_NAME
+                println(repoName.split("/")[0])
             }
         }
         stage("Tests") {
@@ -33,6 +34,7 @@ echo "** Tests finished"
             }
         }
         stage("check branch and push to Docker hub repository") {
+
             steps {
                 pushImageToRepository()
             }
