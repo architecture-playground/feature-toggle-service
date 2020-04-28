@@ -16,8 +16,7 @@ pipeline {
     stages {
         stage("print branch name") {
             steps {
-                sh ('printenv')
-                print(env.GIT_BRANCH)
+                splitJobName
             }
         }
         stage("Tests") {
@@ -34,9 +33,10 @@ echo "** Tests finished"
             }
         }
         stage("check branch and push to Docker hub repository") {
-           steps {
-               checkBranchAndPushImage()
-           }
+            chechBranch()
+            steps {
+                pushImageToRepository()
+            }
 
         }
     }
