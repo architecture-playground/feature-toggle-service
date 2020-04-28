@@ -15,8 +15,7 @@ pipeline {
     }
     stages {
         stage("print branch name") {
-            steps {
-                repoName = env.JOB_NAME
+            steps {                
                 println(repoName.split("/")[0])
             }
         }
