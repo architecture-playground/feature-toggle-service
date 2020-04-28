@@ -34,7 +34,9 @@ echo "** Tests finished"
             }
         }
         stage("check branch and push to Docker hub repository") {
-            checkBranchAndPushImage()
+           steps {
+               checkBranchAndPushImage()
+           }
 
         }
     }
