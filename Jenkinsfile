@@ -33,7 +33,6 @@ echo "** Tests finished"
             }
         }
         stage("check branch and push to Docker hub repository") {
-            chechBranch()
             steps {
                 pushImageToRepository()
             }
