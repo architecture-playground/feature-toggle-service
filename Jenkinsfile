@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage("Tests") {
             steps {
-               tests(repositoryName)
+               tests(repositoryName = "feature-toggle-service")
             }
         }
         stage("check branch and push to Docker hub repository") {
@@ -28,7 +28,7 @@ pipeline {
                 }
             }
             steps {
-                pushImageToRepository(repositoryName)
+                pushImageToRepository(repositoryName = "feature-toggle-service")
             }
         }
     }
