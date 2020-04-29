@@ -13,7 +13,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
-    repositoryName = "feature-toggle-service"
+
     stages {
         stage("Tests") {
             steps {
